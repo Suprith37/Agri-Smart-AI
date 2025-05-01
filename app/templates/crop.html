@@ -1,0 +1,360 @@
+{% extends 'layout.html' %} {% block body %}
+
+
+<style>
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+
+  .crop-section {
+  background-color: rgba(252, 211, 123, 1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  justify-content: center; /* Center the content vertically */
+  overflow: hidden;
+  padding: 189px 80px;
+  /* border-radius: 30px; */
+  /* height:200vh; */
+}
+
+
+  .section-title {
+    color: #fff;
+    text-align: center;
+    margin-left: 18px;
+    font: 800 79px Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position : absolute;
+    top:130px;
+    scale:0.7;
+  }
+
+  /* .input-container {
+    border-radius: 20px;
+    box-shadow: 0 3px 7px 3px rgba(0, 0, 0, 0.25);
+    border-color: rgba(0, 0, 0, 0.5);
+    align-self: end;
+    margin-top: 99px;
+    width: 1000px;
+    max-width: 100%;
+    scale: 0.8;
+    background-color: #fff; /* Added background color 
+    padding: 30px; /* Added padding */
+    /* border-radius: 20px; Rounded corners 
+  } */
+
+
+.input-container {
+  border-radius: 20px;
+  box-shadow: 0 3px 7px 3px rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.5);
+  margin-top: 99px;
+  width: 1000px;
+  max-width: 100%;
+  scale: 0.8;
+  background-color: #fff;
+  padding: 30px;
+  position:relative;
+  bottom:100px;
+}
+  .content-wrapper {
+    gap: 10px;
+    display: flex;
+  }
+
+  .image-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 0;
+    height: 100%;
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    /* aspect-ratio: 0.63;
+    object-fit: contain;
+    object-position: center; */
+    width: 100%;
+    /* border-radius: 20px 0 0 20px; */
+    /* box-shadow: 0 8px 12px 6px rgba(0, 0, 0, 0.15);
+    flex-grow: 1; */
+    height: 100%;
+  }
+
+  .form-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 46%;
+    margin-left: 20px;
+    background-color: white;
+  }
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    color: rgba(0, 0, 0, 0.94);
+    margin: auto 0;
+    font: 600 19px Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+
+  .form-title {
+    color: rgb(19, 18, 18);
+    font-size: 50px;
+    font-weight: 800;
+    align-self: center;
+    margin-bottom: 20px; /* Added margin */
+  }
+
+  .input-field {
+    border-radius: 50px;
+    background-color: #f9f9f9; /* Light background for input */
+    margin-top: 15px; /* Reduced margin */
+    width: 458px;
+    max-width: 100%;
+    padding: 16px 26px;
+    border: 2px solid rgba(0, 0, 0, 0.2); /* Softer border */
+    transition: border 0.3s; /* Transition for focus effect */
+    scale:0.8;
+    /* position:absolute ; */
+  }
+
+  .input-field:focus {
+    border-color: #ffcc00; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+  }
+
+  .submit-button {
+    border-radius: 52px;
+    background-color: rgb(22, 11, 11);
+    align-self: center;
+    margin-top: 28px;
+    width: 281px;
+    max-width: 100%;
+    font-size: 26px;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 70px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition for hover effect */
+  }
+
+  .submit-button:hover {
+    background-color: rgb(34, 21, 21); /* Darker shade on hover */
+  }
+
+  .results-section {
+    border-radius: 66px;
+    background-color: rgb(217, 217, 217);
+    display: flex;
+    margin-top: 99px;
+    width: 100%;
+    max-width: 1266px;
+    flex-direction: column;
+    padding: 50px 77px;
+  }
+
+  .results-title {
+    color: #000;
+    align-self: start;
+    font: 500 60px Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+
+  .pagination {
+    align-self: center;
+    display: flex;
+    margin-top: 569px;
+    width: 171px;
+    max-width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .page-dot {
+    background-color: #000;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+  }
+
+  @media (max-width: 991px) {
+    .crop-section {
+      padding: 100px 20px;
+    }
+
+    .section-title {
+      max-width: 100%;
+      font-size: 40px;
+    }
+
+    .input-container {
+      padding-right: 20px;
+      margin-top: 40px;
+    }
+
+    .content-wrapper {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .image-column {
+      width: 100%;
+    }
+
+    .hero-image {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+
+    .form-column {
+      width: 100%;
+    }
+
+    .form-wrapper {
+      margin-top: 40px;
+    }
+
+    .form-title {
+      font-size: 40px;
+    }
+
+    .input-field {
+      margin: 40px 2px 0 0;
+      padding: 0 20px;
+    }
+
+    .submit-button {
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .results-section {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .results-title {
+      font-size: 40px;
+    }
+
+    .pagination {
+      margin-top: 40px;
+    }
+  }
+</style>
+
+<div class="crop-section">
+  <h1 class="section-title">Crop Recommendation</h1>
+  <div class="input-container">
+    <div class="content-wrapper">
+      <div class="image-column" style="border-radius: 0px;">
+        <img loading="lazy" style = "border-radius:0px;" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f8d73993c4efaaf1486b159b561053a55bbbb6c9c7192ca44a47a898b338ef7?placeholderIfAbsent=true&apiKey=9d5777f012014f9187fd294a9a9d75d4" alt="" class="hero-image" />
+      </div>
+      <div class="form-column">
+        <form class="form-wrapper" method="POST" action="{{ url_for('crop_prediction') }}">
+          <h2 class="form-title">Inputs</h2>
+          <label for="nitrogen" class="visually-hidden">Nitrogen</label>
+          <input 
+              type="number"
+              class="input-field"
+              id="Nitrogen"
+              name="nitrogen"
+              placeholder="Enter the Nitrogen value (example:50)"
+              min="0" max="500"
+              required
+          />
+          
+          <label for="phosphorous" class="visually-hidden">Phosphorous</label>
+          <input 
+            type="number"
+            class="input-field"
+            id="Phosphorous"
+            name="phosphorous"
+            placeholder="Enter the Phosphorous value (example:50)"
+            min="0" max="60" 
+            required
+          />
+          
+          <label for="potassium" class="visually-hidden">Potassium</label>
+          <input 
+            type="number"
+            class="input-field"
+            id="Pottasium"
+            name="pottasium"
+            placeholder="Enter the Potassium value (example:50)"
+            min="0" max="600"
+            required  
+          />
+          
+          <label for="ph" class="visually-hidden">Ph Level</label>
+          <input 
+            type="number"
+            step="0.01"
+            class="input-field"
+            id="ph"
+            name="ph"
+            placeholder="Enter the Ph value"
+            min="5.0" max="8.5"
+            required
+          />
+          
+          <div class="form-group">
+            <label for="rainfall" class="visually-hidden">Rainfall (in mm)</label>
+            <input 
+              type="number"
+              step="0.01"
+              class="input-field"
+              id="Rainfall"
+              name="rainfall"
+              placeholder="Enter the Rainfall (in mm) value"
+              min="0" max="3000"
+              required
+            />
+            
+            <label for="state" class="visually-hidden">State</label>
+            <select
+              onchange="print_city('state', this.selectedIndex);"
+              id="sts"
+              name="stt"
+              class="input-field"
+              required
+            ></select>
+   
+            <label for="city" class="visually-hidden">City</label>
+            <select
+              id="state"
+              placeholder="first select state"
+              class="input-field"
+              name="city"
+              
+              required
+              
+            >
+            <option value="" disabled selected>Enter City </option>
+          </select>
+            <script language="javascript">
+              print_state("sts");
+            </script>
+          </div>
+  
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
+{% endblock %}

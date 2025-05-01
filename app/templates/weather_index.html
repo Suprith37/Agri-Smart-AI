@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="url_for('static',filename='css/weather.css)"> -->
+    <link href="{{ url_for('static', filename='css/weather.css') }}" rel="stylesheet"><!-- fontawesome css -->
+	
+
+</head>
+
+<body>
+    
+
+    <header class="header">
+        <h1 class="header-title">WEATHER FORECAST</h1>
+    </header>
+
+    <div class="container">
+        <div class="header-sec">
+            <!-- <div class="search-box">
+                <input type="text" placeholder="Enter your location" class="input-box">
+
+                <button class="fa-solid fa-magnifying-glass" id="searchBtn"></button>
+            </div> -->
+            <div class="search-box">
+                <input type="text" placeholder="Enter your location" class="input-box">
+                <button id="searchBtn" class="fa fa-search"></button>
+            </div>
+        </div>
+
+        <div class="location-not-found">
+            <h1>Sorry, Location not found!!!</h1>
+            <img src="{{ url_for('static', filename='images/weather_img/404.png') }}" alt="404 Error">
+            
+            <!-- href="{{ url_for('static', filename='css/bootstrap.css') }}" -->
+            <!-- "{{ url_for('static', filename='images/weather_img/404.png') }}" -->
+        </div>
+
+        <div class="weather-body">
+            <!-- <img src="img/cloud.png" alt="Weather Image" class="weather-img"> -->
+            <!-- <img src="{{url_for('static', filename='images/weather_img/cloud.png')}}" alt="Weather Image" class="weather-img"> -->
+            <!-- <img id="weather-img"src="{{ url_for('static', filename='images/weather_img/cloud.png') }}" alt="Cloud Image"> -->
+            <!-- <img id="weather-img" src="{{ url_for('static', filename='images/weather_img/cloud.png') }}" alt="Weather Image"> -->
+            <img id="weather-img" 
+     data-cloud="{{ url_for('static', filename='images/weather_img/cloud.png') }}"
+     data-clear="{{ url_for('static', filename='images/weather_img/clear-sky.png') }}"
+     data-rain="{{ url_for('static', filename='images/weather_img/rain.png') }}"
+     data-haze="{{ url_for('static', filename='images/weather_img/haze.png') }}"
+     data-lightning="{{ url_for('static', filename='images/weather_img/lightning.png') }}"
+     data-snow="{{ url_for('static', filename='images/weather_img/snow.png') }}"
+     data-storm="{{ url_for('static', filename='images/weather_img/storm.png') }}"
+     data-thunderstorm="{{ url_for('static', filename='images/weather_img/thunderstorm.png') }}"
+     data-mist="{{ url_for('static', filename='images/weather_img/mist.png') }}"
+     src="{{ url_for('static', filename='images/weather_img/cloud.png') }}" 
+     alt="Weather Image">
+
+            <div class="weather-box">
+                <p class="temperature">0 <sup>°C</sup></p>
+                <p class="description">light rain</p>
+            </div>
+
+            <div class="weather-details">
+                <div class="humidity">
+                    <i class="fa-sharp fa-solid fa-droplet"></i>
+                    <div class="text">
+                        <span id="humidity">45%</span>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+
+                <div class="wind">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="text">
+                        <span id="wind-speed">12Km/H</span>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/595a890311.js" crossorigin="anonymous"></script> -->
+    <script src="{{ url_for('static', filename='scripts/weather_script.js') }}"></script>
+    <!-- <script src="https://kit.fontawesome.com/595a890311.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
+    
+    <!-- <footer class="footer">
+        <p class="footer-text">© Copyright – All Rights Reserved Team AgriSens</p>
+    </footer> -->
+
+    

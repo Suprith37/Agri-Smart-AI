@@ -1,0 +1,226 @@
+{% extends 'layout.html' %} 
+{% block body %}
+<!-- 
+<style>
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .results-panel {
+    background-color: rgba(217, 217, 217, 1);
+    border-radius: 30px;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .results-heading {
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Plus Jakarta Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .recommendations-list {
+    color: black;
+    font-size: 18px;
+    line-height: 1.6;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  .pagination-dots {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .dot {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .dot:focus {
+    outline: 2px solid rgba(0, 0, 0, 0.8);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 991px) {
+    .results-panel {
+      padding: 20px 30px;
+    }
+    
+    .results-heading {
+      font-size: 32px;
+    }
+    
+    .recommendations-list {
+      font-size: 16px;
+    }
+    
+    .dot {
+      width: 15px;
+      height: 15px;
+    }
+  }
+</style>
+
+<div class="results-container">
+  <div class="results-panel">
+    <h2 class="results-heading">Result</h2>
+    <ul class="recommendations-list">
+      {% for point in recommendation.splitlines() %}
+        <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <div class="pagination-dots">
+    <button class="dot" tabindex="0" aria-label="Page 1"></button>
+    <button class="dot" tabindex="0" aria-label="Page 2"></button>
+    <button class="dot" tabindex="0" aria-label="Page 3"></button>
+    <button class="dot" tabindex="0" aria-label="Page 4"></button>
+  </div>
+</div> -->
+
+
+<style>
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    background-image: url("https://img.freepik.com/free-vector/flat-design-blue-dots-background_23-2149621069.jpg?t=st=1735283416~exp=1735287016~hmac=2ef9b2917c05a7ec3cb1be50bec82403ecbdfbbf415cafab3eec8dea65351448&w=996");
+    background-size: cover; /* Ensure the background covers the container */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    min-height: 150vh; /* Make it fill the viewport initially */
+    padding-bottom: 50px; /* Ensure space at the bottom */
+    box-sizing: border-box;
+  }
+
+  .results-panel {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border-radius: 30px;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); /* More pronounced shadow for depth */
+    backdrop-filter: blur(15px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for the glass effect */
+    opacity: 0; /* Start hidden for fade-in effect */
+    transform: translateY(20px); /* Start slightly lower for slide effect */
+    animation: fadeInUp 0.5s forwards; /* Animation for fade-in and slide-up */
+    scale: 0.9;
+    position: relative;
+    top:50px;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1; /* Fully visible */
+      transform: translateY(0); /* Move to original position */
+    }
+  }
+
+  .results-heading {
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Plus Jakarta Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .recommendations-list {
+    color: black;
+    font-size: 18px;
+    line-height: 1.6;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  .pagination-dots {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .dot {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+
+  .dot:hover {
+    transform: scale(1.2);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .dot:focus {
+    outline: 2px solid rgba(0, 0, 0, 0.8);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 991px) {
+    .results-panel {
+      padding: 20px 30px;
+    }
+    
+    .results-heading {
+      font-size: 32px;
+    }
+    
+    .recommendations-list {
+      font-size: 16px;
+    }
+    
+    .dot {
+      width: 15px;
+      height: 15px;
+    }
+  }
+</style>
+
+<div class="results-container">
+  <div class="results-panel">
+    <h2 class="results-heading">Result</h2>
+    <ul class="recommendations-list">
+      {% for point in recommendation.splitlines() %}
+        <li style="font-family: 'Plus Jakarta Sans', -apple-system, Roboto, Helvetica, sans-serif;">{{ point }}</li>
+      {% endfor %}
+    </ul>
+    
+    <div class="pagination-dots" style="margin-top: 30px;"> <!-- Added margin-top here -->
+      <button class="dot" tabindex="0" aria-label="Page 1"></button>
+      <button class="dot" tabindex="0" aria-label="Page 2"></button>
+      <button class="dot" tabindex="0" aria-label="Page 3"></button>
+      <button class="dot" tabindex="0" aria-label="Page 4"></button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

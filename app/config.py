@@ -1,0 +1,4 @@
+# weather_api_key = "9d7cde1f6d07ec55650544be1631307e"
+
+API_KEY1 = "a14cad1c41611a3095244eeec54d7e7b"
+API_KEY2 = "b30ff123833e1a6406cd1a50f6b7148c"
