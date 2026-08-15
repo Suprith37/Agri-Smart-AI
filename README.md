@@ -1,143 +1,310 @@
-# HARVESTIFY 🌿
-#### A simple ML and DL based website which recommends the best crop to grow, fertilizers to use and the diseases caught by your crops.
+# 🌱 Agri Smart AI
 
-#### This project is featured on [Krish Naik's](https://www.youtube.com/channel/UCNU_lfiiWBdtULKOw6X0Dig) YouTube Channel => Check it out [here](https://www.youtube.com/watch?v=zJcSod-L-Ps)
+> **AI-powered precision agriculture system for plant disease detection, crop recommendation, fertilizer recommendation, and weather-based farming insights.**
 
-## DISCLAIMER ⚠️
-This is a POC(Proof of concept) kind-of project. The data used here comes up with no guarantee from the creator. So, don't use it for making farming decisions. If you do so, the creator is not responsible for anything. However, this project presents the idea that how we can use ML/DL into precision farming if developed at large scale and with authentic and verified data.
+## 📌 Overview
 
-## MOTIVATION 💪
-- Farming is one of the major sectors that influences a country’s economic growth. 
+**Agri Smart AI** is an AI-powered agricultural advisory system designed to help farmers make better, data-driven farming decisions. The system combines **Machine Learning, Deep Learning, soil data, historical agricultural data, and weather information** into a single web-based platform.
 
-- In country like India, majority of the population is dependent on agriculture for their livelihood. Many new technologies, such as Machine Learning and Deep Learning, are being implemented into agriculture so that it is easier for farmers to grow and maximize their yield. 
+It provides three major agricultural recommendations:
 
-- In this project, I present a website in which the following applications are implemented; Crop recommendation, Fertilizer recommendation and Plant disease prediction, respectively. 
+* 🌿 **Plant Disease Detection** using CNN
+* 🌾 **Crop Recommendation** using Random Forest
+* 🧪 **Fertilizer Recommendation** based on soil nutrient conditions
+* 🌦️ **Weather Forecasting** for improved agricultural planning
 
-    - In the crop recommendation application, the user can provide the soil data from their side and the application will predict which crop should the user grow. 
-    
-    - For the fertilizer recommendation application, the user can input the soil data and the type of crop they are growing, and the application will predict what the soil lacks or has excess of and will recommend improvements. 
-    
-    - For the last application, that is the plant disease prediction application, the user can input an image of a diseased plant leaf, and the application will predict what disease it is and will also give a little background about the disease and suggestions to cure it.
+The goal is to **improve crop productivity, reduce resource wastage, and promote sustainable agriculture**.
 
-## DATA SOURCE 📊
-- [Crop recommendation dataset ](https://www.kaggle.com/atharvaingle/crop-recommendation-dataset) (custom built dataset)
-- [Fertilizer suggestion dataset](https://github.com/Gladiator07/Harvestify/blob/master/Data-processed/fertilizer.csv) (custom built dataset)
-- [Disease detection dataset](https://www.kaggle.com/vipoooool/new-plant-diseases-dataset)
+---
 
-## Notebooks 📓
-##### I have also published the corresponding code on Kaggle Notebooks.
-- [Crop Recommendation](https://www.kaggle.com/atharvaingle/what-crop-to-grow)
-- [Disease Detection](https://www.kaggle.com/atharvaingle/plant-disease-classification-resnet-99-2)
+## 🚀 Key Features
 
-# Built with 🛠️
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
-<code><img height="30" src="https://github.com/tomchen/stack-icons/raw/master/logos/bootstrap.svg"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
-<code><img height="30" src="https://symbols.getvecta.com/stencil_80/56_flask.3a79b5a056.jpg"></code>
-<code><img height="30" src="https://cdn.iconscout.com/icon/free/png-256/heroku-225989.png"></code>
+### 🌿 Plant Disease Detection
 
-<code><img height="30" src="https://raw.githubusercontent.com/numpy/numpy/7e7f4adab814b223f7f917369a72757cd28b10cb/branding/icons/numpylogo.svg"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/pandas-dev/pandas/761bceb77d44aa63b71dda43ca46e8fd4b9d7422/web/pandas/static/img/pandas.svg"></code>
-<code><img height="30" src="https://matplotlib.org/_static/logo2.svg"></code>
-<code><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/1280px-Scikit_learn_logo_small.svg.png"></code>
-<code><img height="30" src="https://raw.githubusercontent.com/pytorch/pytorch/39fa0b5d0a3b966a50dcd90b26e6c36942705d6d/docs/source/_static/img/pytorch-logo-dark.svg"></code>
+A **Convolutional Neural Network (CNN)** is trained using **38,000+ leaf images** from the PlantVillage dataset.
 
-## DEPLOYMENT 🚀
+* Detects **38 different plant diseases**
+* Achieves **99.55% accuracy**
+* Supports early disease identification
+* Helps reduce potential crop damage
 
-#### Deployment is done using [deploy](https://github.com/Gladiator07/Harvestify/tree/deploy) branch
-#### This website is deployed at [Heroku](https://www.heroku.com/)
-#### You can access it [here](https://harvestify.herokuapp.com/)
-#### Note: The website may take a minute to load sometimes, as the server may be in hibernate state
+### 🌾 Crop Recommendation
 
-## How to use 💻
-- Crop Recommendation system ==> enter the corresponding nutrient values of your soil, state and city. Note that, the N-P-K (Nitrogen-Phosphorous-Pottasium) values to be entered should be the ratio between them. Refer [this website](https://www.gardeningknowhow.com/garden-how-to/soil-fertilizers/fertilizer-numbers-npk.htm) for more information.
-Note: When you enter the city name, make sure to enter mostly common city names. Remote cities/towns may not be available in the [Weather API](https://openweathermap.org/) from where humidity, temperature data is fetched.
+A **Random Forest classifier** analyzes agricultural conditions to recommend suitable crops.
 
-- Fertilizer suggestion system ==> Enter the nutrient contents of your soil and the crop you want to grow. The algorithm will tell which nutrient the soil has excess of or lacks. Accordingly, it will give suggestions for buying fertilizers.
+The recommendation considers:
 
-- Disease Detection System ==> Upload an image of leaf of your plant. The algorithm will tell the crop type and whether it is diseased or healthy. If it is diseased, it will tell you the cause of the disease and suggest you how to prevent/cure the disease accordingly.
-Note that, for now it only supports following crops
+* Soil conditions
+* NPK values
+* Climate conditions
+* Historical crop yield data
 
-<details>
-  <summary>Supported crops
-</summary>
+**Accuracy: 95.12%**
 
-- Apple
-- Blueberry
-- Cherry
-- Corn
-- Grape
-- Pepper
-- Orange
-- Peach
-- Potato
-- Soybean
-- Strawberry
-- Tomato
-- Squash
-- Raspberry
-</details>
+### 🧪 Fertilizer Recommendation
 
-## How to run locally 🛠️
-- Before the following steps make sure you have [git](https://git-scm.com/download), [Anaconda](https://www.anaconda.com/) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) installed on your system
-- Clone the complete project with `git clone https://github.com/Gladiator07/Harvestify.git` or you can just download the code and unzip it
-- **Note:** The master branch doesn't have the updated code used for deployment, to download the updated code used for deployment you can use the following command
-  ```
-  ❯ git clone -b deploy https://github.com/Gladiator07/Harvestify.git 
-  ```
-- `deploy` branch has only the code required for deploying the app (rest of the code that was used for training the models, data preparation can be accessed on `master` branch)
-- It is highly recommended to clone the deploy branch for running the project locally (the further steps apply only if you have the deploy branch cloned)
-- Once the project is cloned, open anaconda prompt in the directory where the project was cloned and paste the following block
-  ```
-  conda create -n harvestify python=3.6.12
-  conda activate harvestify
-  pip install -r requirements.txt
-  ```
-- And finally run the project with
-  ```
-  python app.py
-  ```
-- Open the localhost url provided after running `app.py` and now you can use the project locally in your web browser.
-## DEMO
+The system provides fertilizer suggestions based on:
 
-- ### Crop recommendation system
+* Soil nutrient levels
+* Crop requirements
+* NPK conditions
+* Crop growth stage
 
-![demo](https://media.giphy.com/media/90JbjdAa5nDq3TJh5u/giphy.gif)
+This helps reduce unnecessary fertilizer usage and nutrient wastage.
 
-- ### Fertilizer suggestion system
+### 🌦️ Weather Integration
 
-![demo](https://media.giphy.com/media/FLftUXMFo8N2bBjAXq/giphy.gif)
+Weather information is incorporated to support better agricultural decision-making and improve the relevance of crop and fertilizer recommendations.
 
+### 💻 Web-Based Platform
 
-- ### Disease Detection system
-![demo](https://media.giphy.com/media/NnMwEp2tGZdfnJbyjr/giphy.gif)
+All the modules are integrated into a single, user-friendly web interface, allowing farmers to access AI-based agricultural insights from one platform.
 
+---
 
+## 🧠 System Workflow
 
-## Contribute 👨‍💻
-Please read [CONTRIBUTING.md](https://github.com/Gladiator07/Harvestify/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+```text
+             ┌─────────────────────┐
+             │      User Input      │
+             │                     │
+             │ Leaf Image / Soil   │
+             │ Data / Crop Details │
+             └──────────┬──────────┘
+                        │
+                        ▼
+             ┌─────────────────────┐
+             │   Data Processing   │
+             │                     │
+             │ Image Preprocessing │
+             │ Data Normalization  │
+             └──────────┬──────────┘
+                        │
+             ┌──────────┴──────────┐
+             ▼                     ▼
+    ┌─────────────────┐   ┌──────────────────┐
+    │   CNN Model     │   │ Random Forest    │
+    │                 │   │                  │
+    │ Disease         │   │ Crop             │
+    │ Detection       │   │ Recommendation   │
+    └────────┬────────┘   └─────────┬────────┘
+             │                      │
+             ▼                      ▼
+    ┌─────────────────┐   ┌──────────────────┐
+    │ Disease Result  │   │ Crop Suggestion  │
+    └─────────────────┘   └─────────┬────────┘
+                                    │
+                                    ▼
+                         ┌────────────────────┐
+                         │ Fertilizer Advice  │
+                         └─────────┬──────────┘
+                                   │
+                                   ▼
+                         ┌────────────────────┐
+                         │ Weather Information│
+                         └─────────┬──────────┘
+                                   │
+                                   ▼
+                         ┌────────────────────┐
+                         │  Final Agricultural│
+                         │    Recommendations │
+                         └────────────────────┘
+```
 
-## Usage ⚙️
-You can use this project for further developing it and adding your work in it. If you use this project, kindly mention the original source of the project and mention the link of this repo in your report.
+---
 
-## Further Improvements 📈
-This was my first big project so there are lot of things to improve upon
+## 📊 Dataset
 
-- CSS code is totally messed up :pensive: (some code in file and some inline)
-- Frontend can be made more nicer (PS: I suck at frontend development) :cry:	
-- More data can be collected manually via web scrapping to make the system more accurate :monocle_face:	
-- Additional plant images can be collected to make the disease detection part more robust and generalized :face_with_head_bandage:
-- Modularized code can be written instead of writing in Jupyter Notebooks (will follow this in upcoming projects)
+### PlantVillage Dataset
 
-## Credits 💳
-This project is heavily inspired from **[this GitHub repository](https://github.com/7NNS7/Recommendation-System-for-Farming)** (especially the crop recommendation and fertilizer recommendation part). This project is an extended version of the above mentioned project. Please star the mentioned repo.
+Used for plant disease detection.
 
-## License 📝
-This project is licensed under [GNU (GENERAL PUBLIC LICENSE)](https://github.com/Gladiator07/Harvestify/blob/master/LICENSE).
+* **38,000+ images**
+* **15 plant species**
+* **38 disease classes**
+* Used to train the CNN disease classification model
 
-## Contact 📞
+### Indian Agricultural Production Dataset
 
-#### If you have any doubt or want to contribute feel free to email me or hit me up on [LinkedIn](https://www.linkedin.com/in/atharva-ingle-564430187/)
+Used for agricultural analysis and crop recommendation.
+
+* **46 years of agricultural data**
+* Covers **1970–2015**
+* Includes crop production
+* Includes cultivated area
+* Includes yield-related information
+* Provides historical agricultural trends
+
+---
+
+## 🤖 Machine Learning Models
+
+| Task                    | Model         |   Accuracy |
+| ----------------------- | ------------- | ---------: |
+| Plant Disease Detection | CNN           | **99.55%** |
+| Crop Recommendation     | Random Forest | **95.12%** |
+
+The CNN model demonstrated strong performance in plant disease classification, while Random Forest achieved the best performance among the evaluated models for crop recommendation.
+
+---
+
+## 🛠️ Technology Stack
+
+### Machine Learning & AI
+
+* Python
+* TensorFlow / PyTorch
+* Scikit-learn
+* OpenCV
+
+### Data Processing
+
+* NumPy
+* Pandas
+* Matplotlib
+
+### Backend
+
+* Flask
+
+### Datasets
+
+* PlantVillage Dataset
+* Indian Agricultural Production Dataset
+* Kaggle
+
+---
+
+## 📁 Project Structure
+
+```text
+Agri-Smart-AI/
+│
+├── dataset/
+│   ├── plant_disease/
+│   └── agricultural_data/
+│
+├── models/
+│   ├── disease_detection/
+│   └── crop_recommendation/
+│
+├── preprocessing/
+│
+├── static/
+│
+├── templates/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
+
+> The exact project structure may vary depending on the implementation.
+
+---
+
+## ⚙️ Methodology
+
+### 1. Data Collection
+
+Agricultural datasets containing plant images, soil information, crop data, and weather information are collected.
+
+### 2. Data Preprocessing
+
+Images are resized, normalized, enhanced, and augmented. Structured data is cleaned, normalized, and scaled.
+
+### 3. Disease Detection
+
+The CNN extracts visual features from leaf images and classifies them into different disease categories.
+
+### 4. Crop Recommendation
+
+Random Forest analyzes soil, climate, and historical agricultural information to recommend suitable crops.
+
+### 5. Fertilizer Recommendation
+
+The system analyzes soil nutrient conditions and crop requirements to provide suitable fertilizer suggestions.
+
+### 6. System Integration
+
+All modules are integrated into a web-based platform to provide farmers with a unified agricultural advisory system.
+
+---
+
+## 📈 Results
+
+The proposed system achieved:
+
+* **99.55% accuracy** in plant disease detection
+* **95.12% accuracy** in crop recommendation
+* Effective fertilizer recommendations based on soil conditions
+* Integration of weather information for improved decision-making
+* A unified platform for multiple agricultural requirements
+
+---
+
+## 🎯 Problem Addressed
+
+Traditional agricultural practices face several challenges:
+
+* Manual disease identification can be slow and requires expert knowledge.
+* Improper fertilizer usage can cause nutrient wastage and soil degradation.
+* Crop selection may not adequately consider soil and climate compatibility.
+* Existing agricultural solutions often address individual problems rather than providing an integrated solution.
+
+**Agri Smart AI** aims to address these challenges through a single AI-powered platform.
+
+---
+
+## 🔮 Future Scope
+
+Future improvements include:
+
+* 📚 Expanding crop and disease datasets
+* 📡 Integrating real-time agricultural sensors
+* 🌍 Improving adaptability across different farming environments
+* 🗣️ Adding multilingual support
+* 📱 Improving accessibility through mobile applications
+* 📴 Supporting offline operation in areas with limited internet connectivity
+
+---
+
+## 👥 Team
+
+**Agri Smart AI** was developed by students from the
+**Department of Computer Science and Engineering,
+The National Institute of Engineering, Mysore.**
+
+---
+
+## 📄 Research Paper
+
+This project is based on the research paper:
+
+**"Agri Smart AI: Crop and Fertilizer Advisor with Leaf Disease Detection Using Machine and Deep Learning"**
+
+Published in the **2025 International Conference on Intelligent Computing and Knowledge Extraction (ICICKE)**.
+
+---
+
+## ⭐ Project Highlights
+
+```text
+🌿 38+ Plant Disease Classes
+🖼️ 38,000+ Training Images
+🧠 CNN-Based Disease Detection
+🌾 Random Forest Crop Recommendation
+🧪 Fertilizer Recommendation
+🌦️ Weather Integration
+📊 Data-Driven Agricultural Insights
+💻 Web-Based Platform
+🎯 99.55% Disease Detection Accuracy
+🎯 95.12% Crop Recommendation Accuracy
+```
+
+---
+
+## 📜 License
+
+This project is intended for **academic and research purposes**.
